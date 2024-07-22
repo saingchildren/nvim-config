@@ -30,6 +30,11 @@ return {
           "node_modules/",
           "pack/",
           "pack/*",
+          "**/*.png",
+          "**/*.jpg",
+          "**/*.doc",
+          "**/*.xlsx",
+          "**/*.pdf"
         },
         extensions = {
           file_browser = {

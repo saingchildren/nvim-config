@@ -12,23 +12,22 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
-      on_highlights = function (hl, c)
-        local prompt = "#2d3149" 
+      on_highlights = function(hl, c)
         hl.LineNr = {
           fg = c.blue,
-          bg = "NONE"
+          bg = "NONE",
         }
         hl.CursorLineNr = {
           fg = c.yellow,
           bg = "NONE",
           bold = true,
         }
-      end
+      end,
     })
     tokyonight.load()
     vim.cmd([[
-        hi NormalFloat guibg=#1e222a
-        hi FloatBorder guibg=#1e222a guifg=#3e4452
-      ]])
+      hi NormalFloat guibg=#1e222a
+      hi FloatBorder guibg=#1e222a guifg=#3e4452
+    ]])
   end
 }

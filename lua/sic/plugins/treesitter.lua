@@ -14,6 +14,10 @@ return {
         "lua",
         "jsdoc",
         "html",
+        "vue",
+        "markdown",
+        "markdown_inline",
+        "css"
       },
       sync_install = false,
       auto_install = true,
