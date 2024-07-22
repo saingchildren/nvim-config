@@ -30,7 +30,8 @@ return {
         "lua_ls",
         "tsserver",
         "volar",
-        "vls"
+        "vls",
+        "tailwindcss",
       },
       handlers = {
         function(server_name) -- default handler (optional)
