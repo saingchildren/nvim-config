@@ -28,7 +28,9 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
-        "tsserver"
+        "tsserver",
+        "volar",
+        "vls"
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -50,10 +52,49 @@ return {
             }
           }
         end,
+        --["volar"] = function ()
+        --  local lspconfig = require("lspconfig")
+        --  lspconfig.volar.setup {
+        --    capabilities = capabilities,
+        --    filetypes = {
+        --      "javascript",
+        --      "typescript",
+        --      "javascriptreact",
+        --      "javascript.jsx",
+        --      "typescriptreact",
+        --      "typescript.tsx",
+        --      "vue",
+        --    }
+        --  }
+        --end,
+        ["tsserver"] = function ()
+          local lspconfig = require("lspconfig")
+          lspconfig.tsserver.setup {
+          capabilities = capabilities,
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = "C:/Users/a2251/scoop/apps/nvm/current/nodejs/nodejs/node_modules/@vue/typescript-plugin",
+                languages = { "javascript", "typescript", "vue", "tsx"},
+              },
+            },
+          },
+          filetypes = {
+            "javascript",
+            "typescript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescriptreact",
+            "typescript.tsx",
+            "vue",
+          }
+        }
+        end
       }
     })
 
-    local cmp_select = { behavior = cmp.SelectBehavior.Select }
+    local cmp_select = { behavior = cmp.SelectBehavior.Insert }
     local lspkind = require("lspkind")
 
     cmp.setup({
@@ -70,6 +111,7 @@ return {
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = "path" }
       }, {
         { name = 'buffer' },
       }),
@@ -117,9 +159,7 @@ return {
 
     vim.diagnostic.config({
       -- update_in_insert = true, if true instsert mode will diagnostic code
-      virtual_text = {
-        prefix = "●"
-      },
+      virtual_text = false,
       float = {
         source = "always",
       },
