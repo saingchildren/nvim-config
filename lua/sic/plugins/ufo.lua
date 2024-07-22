@@ -37,7 +37,7 @@ return {
       end
     })
     vim.o.foldlevelstart = 99
-    --vim.api.nvim_set_keymap('n', 'zO', ':lua require("ufo").openAllFolds()<CR>', {noremap = true, silent = true})
-    --vim.api.nvim_set_keymap('n', 'zC', ':lua require("ufo").closeAllFolds()<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', 'zO', ':lua require("ufo").openAllFolds()<CR>', {noremap = true, silent = true})
+    vim.api.nvim_set_keymap('n', 'zC', ':lua require("ufo").closeAllFolds()<CR>', {noremap = true, silent = true})
   end
 }
