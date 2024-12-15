@@ -32,6 +32,7 @@ return {
         "volar",
         "vls",
         "tailwindcss",
+        "pyright"
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -165,5 +166,6 @@ return {
         source = "always",
       },
     })
+    vim.g.python3_host_prog = "C:/Users/a2251/.pyenv/pyenv-win/shims/python3.bat"
   end
 }
