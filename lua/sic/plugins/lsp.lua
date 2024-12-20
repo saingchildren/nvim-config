@@ -28,7 +28,7 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
-        "tsserver",
+        -- "tsserver",
         "volar",
         "vls",
         "tailwindcss",
@@ -69,30 +69,30 @@ return {
         --    }
         --  }
         --end,
-        ["tsserver"] = function ()
-          local lspconfig = require("lspconfig")
-          lspconfig.tsserver.setup {
-          capabilities = capabilities,
-          init_options = {
-            plugins = {
-              {
-                name = "@vue/typescript-plugin",
-                location = "C:/Users/a2251/scoop/apps/nvm/current/nodejs/nodejs/node_modules/@vue/typescript-plugin",
-                languages = { "javascript", "typescript", "vue", "tsx"},
-              },
-            },
-          },
-          filetypes = {
-            "javascript",
-            "typescript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescriptreact",
-            "typescript.tsx",
-            "vue",
-          }
-        }
-        end
+        -- ["tsserver"] = function ()
+        --   local lspconfig = require("lspconfig")
+        --   lspconfig.tsserver.setup {
+        --   capabilities = capabilities,
+        --   init_options = {
+        --     plugins = {
+        --       {
+        --         name = "@vue/typescript-plugin",
+        --         location = "C:/Users/a2251/scoop/apps/nvm/current/nodejs/nodejs/node_modules/@vue/typescript-plugin",
+        --         languages = { "javascript", "typescript", "vue", "tsx"},
+        --       },
+        --     },
+        --   },
+        --   filetypes = {
+        --     "javascript",
+        --     "typescript",
+        --     "javascriptreact",
+        --     "javascript.jsx",
+        --     "typescriptreact",
+        --     "typescript.tsx",
+        --     "vue",
+        --   }
+        -- }
+        -- end
       }
     })
 
@@ -148,6 +148,7 @@ return {
             Event = "",
             Operator = "󰆕",
             TypeParameter = "",
+            Copilot = "",
           },
         })
       }
@@ -169,5 +170,6 @@ return {
       },
     })
     vim.g.python3_host_prog = "C:/Users/a2251/.pyenv/pyenv-win/shims/python3.bat"
+    vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
   end
 }
