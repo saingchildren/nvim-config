@@ -11,7 +11,6 @@ end
 
 return {
   'nvim-telescope/telescope.nvim', tag = '0.1.8',
-  -- or                          , branch = '0.1.x',
   dependencies = { 
     "nvim-lua/plenary.nvim",
     'nvim-telescope/telescope-file-browser.nvim',
@@ -35,6 +34,26 @@ return {
           "**/*.doc",
           "**/*.xlsx",
           "**/*.pdf"
+        },
+        layout_strategy = "vertical",
+        layout_config = {
+          vertical = {
+            mirror = true,
+            preview_height = 0.5,  -- 设置预览窗口高度
+          },
+          width = 0.8,
+          height = 0.9,
+          preview_cutoff = 20,
+        },
+        mappings = {
+          i = {
+            ["<C-u>"] = require('telescope.actions').preview_scrolling_up,
+            ["<C-d>"] = require('telescope.actions').preview_scrolling_down,
+          },
+          n = {
+            ["<C-u>"] = require('telescope.actions').preview_scrolling_up,
+            ["<C-d>"] = require('telescope.actions').preview_scrolling_down,
+          },
         },
         extensions = {
           file_browser = {
