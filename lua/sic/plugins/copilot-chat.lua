@@ -9,7 +9,7 @@ return {
     config = function ()
       require("CopilotChat").setup({
         keymap = {
-          open = ";l",
+          open = ";mm",
         }
       })
     end

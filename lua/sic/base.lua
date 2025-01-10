@@ -3,7 +3,6 @@ vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
 vim.wo.number = true
-vim.wo.numberwidth = 5
 
 vim.opt.title = true
 vim.opt.autoindent = true
@@ -26,4 +25,5 @@ vim.opt.wrap = false -- No Wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
+vim.opt.signcolumn = 'yes'
 vim.keymap.set('n', '<esc>', ':noh<CR>')
