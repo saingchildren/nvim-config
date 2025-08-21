@@ -28,7 +28,7 @@ return {
     require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
-        -- "tsserver",
+        "ts_ls",
         "volar",
         "vls",
         "tailwindcss",
@@ -54,45 +54,44 @@ return {
             }
           }
         end,
-        --["volar"] = function ()
-        --  local lspconfig = require("lspconfig")
-        --  lspconfig.volar.setup {
-        --    capabilities = capabilities,
-        --    filetypes = {
-        --      "javascript",
-        --      "typescript",
-        --      "javascriptreact",
-        --      "javascript.jsx",
-        --      "typescriptreact",
-        --      "typescript.tsx",
-        --      "vue",
-        --    }
-        --  }
-        --end,
-        -- ["tsserver"] = function ()
-        --   local lspconfig = require("lspconfig")
-        --   lspconfig.tsserver.setup {
-        --   capabilities = capabilities,
-        --   init_options = {
-        --     plugins = {
-        --       {
-        --         name = "@vue/typescript-plugin",
-        --         location = "C:/Users/a2251/scoop/apps/nvm/current/nodejs/nodejs/node_modules/@vue/typescript-plugin",
-        --         languages = { "javascript", "typescript", "vue", "tsx"},
-        --       },
-        --     },
-        --   },
-        --   filetypes = {
-        --     "javascript",
-        --     "typescript",
-        --     "javascriptreact",
-        --     "javascript.jsx",
-        --     "typescriptreact",
-        --     "typescript.tsx",
-        --     "vue",
-        --   }
-        -- }
-        -- end
+        ["volar"] = function ()
+          local lspconfig = require("lspconfig")
+          lspconfig.volar.setup {
+            capabilities = capabilities,
+            init_options = {
+              typescript = {
+                tsdk = "C:/Users/a2251/scoop/apps/nvm/current/nodejs/nodejs/node_modules/@vue/typescript-plugin",
+              }
+            },
+            filetypes = {
+              "javascript",
+              "typescript",
+              "vue",
+            }
+          }
+        end,
+        ["ts_ls"] = function ()
+          local lspconfig = require("lspconfig")
+          lspconfig.ts_ls.setup {
+          capabilities = capabilities,
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = "C:/Users/a2251/scoop/apps/nvm/current/nodejs/nodejs/node_modules/@vue/typescript-plugin",
+                languages = { "javascript", "typescript", "vue", "tsx"},
+              },
+            },
+          },
+          filetypes = {
+            "javascript",
+            "typescript",
+            "vue",
+            "javascriptreact",
+            "typescriptreact",
+          }
+        }
+        end
       }
     })
 
