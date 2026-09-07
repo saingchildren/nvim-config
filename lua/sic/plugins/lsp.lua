@@ -32,7 +32,8 @@ return {
         "volar",
         "vls",
         "tailwindcss",
-        "pyright"
+        "pyright",
+        "gopls"
       },
       handlers = {
         function(server_name) -- default handler (optional)
@@ -91,6 +92,22 @@ return {
             "typescriptreact",
           }
         }
+        end,
+        ["gopls"] = function ()
+          local lspconfig = require("lspconfig")
+          lspconfig.gopls.setup {
+            capabilities = capabilities,
+            settings = {
+              gopls = {
+                gofumpt = true,
+                staticcheck = true,
+                analyses = {
+                  unusedparams = true,
+                  shadow = true,
+                },
+              },
+            },
+          }
         end
       }
     })
